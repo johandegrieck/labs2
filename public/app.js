@@ -1,4 +1,5 @@
 (function(){
+  /*this is an angular store app*/
   var app = angular.module("store",[]);
   
   
