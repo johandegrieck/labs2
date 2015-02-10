@@ -109,6 +109,7 @@
     this.review = {};
     this.addReview = function(activeProduct){
       activeProduct.reviews.push(this.review);
+        this.review = {};
     }
   });
 
@@ -120,19 +121,7 @@
     }
   });
   
-  app.controller("panelController",function(){
-    this.activePanel = 1;
-    this.selectPanel = function(panelIndex){
-      this.activePanel = panelIndex;
-    };
-    this.isActivePanel = function(panelIndex){
-      var isActive = false;
-      if(panelIndex === this.activePanel){
-        isActive = true;
-      }
-      return isActive;
-    }
-  });
+
   
   
   /** CUSTOM DIRECTIVES **/
@@ -147,7 +136,21 @@
   app.directive('productPanels',function(){
     return{
       restrict:'E',
-      templateURL : 'product-panels.html'
+      templateUrl:'product-panels.html',
+      controller:function(){
+          this.activePanel = 1;
+          this.selectPanel = function(panelIndex){
+              this.activePanel = panelIndex;
+          };
+          this.isActivePanel = function(panelIndex){
+              var isActive = false;
+              if(panelIndex === this.activePanel){
+                  isActive = true;
+              }
+              return isActive;
+          }
+      },
+      controllerAs:"panel"
     }
   })
   

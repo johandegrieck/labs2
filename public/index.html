@@ -19,72 +19,18 @@
         <product-title></product-title>
       </div>
     </div>
-    <section ng-controller="panelController as panel">
-      <ul class="nav nav-pills">
-        <li ng-class="{active:panel.isActivePanel(1)}">
-          <a href="" ng-click="panel.selectPanel(1)">Description</a>
-        </li>
-        <li ng-class="{active:panel.isActivePanel(2)}">
-          <a href="" ng-click="panel.selectPanel(2)">Specifications</a>
-        </li>
-        <li ng-class="{active:panel.isActivePanel(3)}">
-          <a href="" ng-click="panel.selectPanel(3)">Reviews</a>
-        </li>
-      </ul>
-      <div class="panel" ng-show="panel.isActivePanel(1)">
-        <p>
-          <strong>Product description</strong>
-        </p>
-        <p>{{store.products[store.activeProduct].description}}</p>
-      </div>
-      <div class="panel" ng-show="panel.isActivePanel(2)">
-        <p>
-          <strong>Product specification</strong>
-        </p>
-        <p>{{store.products[store.activeProduct].price | currency}}</p>
-        <p>{{store.products[store.activeProduct].specialOffer | uppercase}}</p>
-      </div>
-      <div class="panel" ng-show="panel.isActivePanel(3)">
-        <p>
-          <strong>Reviews</strong>
-        </p>
-        <blockquote ng-repeat="review in store.products[store.activeProduct].reviews">
-          <div>{{review.stars}} stars</div>
-          <p>{{review.body}}</p>
-                    -<cite>by: {{review.author}}</cite>
-        </blockquote>
-          
-        
-        <form name="reviewForm" ng-controller="reviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(store.products[store.activeProduct])" action="" novalidate>
-          <!-- example post -->
-          <blockquote class="examplereview">
-            <div>{{reviewCtrl.review.stars}} stars</div>
-            <p>{{reviewCtrl.review.body}}</p>
-                      -<cite>by: {{reviewCtrl.review.author}}</cite>
-          </blockquote>
-          <!-- end of example post -->
-          <textarea ng-model="reviewCtrl.review.body" name="" id="" cols="30" rows="10" required></textarea>
-          <select ng-model="reviewCtrl.review.stars" name="" id="" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <!-- form validation debug code -->
-          <div>reviewform if {{reviewForm.$valid}}</div>
-          <!-- end form debug validation code -->
-          
-          <input ng-model="reviewCtrl.review.author" type="email" required/>
-          <input type="submit" >
-        
-        </form>
-          
-          
-        
-        
-      </div>
-    </section>
+
+
+    <product-panels>
+
+    </product-panels>
+
+
+
+
+
+
+
   </body>
 
 </html>
